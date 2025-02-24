@@ -23,25 +23,26 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ setMobileMenuOpen, darkMode, se
       animate={{ x: 0 }}
       exit={{ x: '100%' }}
       transition={{ type: 'tween', duration: 0.3 }}
-      className="fixed inset-y-0 right-0 w-full sm:w-80 bg-white dark:bg-gray-900 shadow-2xl z-50"
+      className="fixed inset-y-0 right-0 w-[250px] bg-white dark:bg-gray-900 shadow-2xl z-50 overflow-y-auto"
     >
-      <div className="p-6">
-        <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl font-bold">Menu</h2>
+      <div className="p-4">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-lg font-bold">Menu</h2>
           <button
             onClick={() => setMobileMenuOpen(false)}
-            className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+            className="p-1.5 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+            aria-label="Close menu"
           >
-            <X className="w-6 h-6" />
+            <X className="w-5 h-5" />
           </button>
         </div>
-        <nav className="space-y-4">
+        <nav className="space-y-2">
           {menuItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block py-2 text-lg hover:text-purple-600 dark:hover:text-purple-400"
+              className="block py-2 text-base hover:text-purple-600 dark:hover:text-purple-400"
             >
               {item.label}
             </a>
@@ -50,16 +51,17 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ setMobileMenuOpen, darkMode, se
             <button
               onClick={() => setDarkMode(!darkMode)}
               className="flex items-center space-x-2 w-full py-2 hover:text-purple-600 dark:hover:text-purple-400"
+              aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
             >
               {darkMode ? (
                 <>
-                  <Sun className="w-5 h-5" />
-                  <span>Light Mode</span>
+                  <Sun className="w-4 h-4" />
+                  <span className="text-sm">Light Mode</span>
                 </>
               ) : (
                 <>
-                  <Moon className="w-5 h-5" />
-                  <span>Dark Mode</span>
+                  <Moon className="w-4 h-4" />
+                  <span className="text-sm">Dark Mode</span>
                 </>
               )}
             </button>
@@ -67,7 +69,7 @@ const MobileMenu: React.FC<MobileMenuProps> = ({ setMobileMenuOpen, darkMode, se
           <a
             href="#register"
             onClick={() => setMobileMenuOpen(false)}
-            className="block w-full text-center bg-purple-600 text-white py-3 rounded-full hover:bg-purple-700 transition-colors mt-6"
+            className="block w-full text-center bg-purple-600 text-white py-2 rounded-full text-sm hover:bg-purple-700 transition-colors mt-4"
           >
             Register Now
           </a>

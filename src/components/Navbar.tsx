@@ -49,20 +49,20 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, mobileMenuOpen, 
           : 'bg-transparent'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+      <div className="max-w-7xl mx-auto px-3 sm:px-4 lg:px-6">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           <div className="flex-shrink-0">
-            <span className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
+            <span className="text-base sm:text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-pink-600">
               Make-a-Thon 6.0
             </span>
           </div>
           <div className="hidden md:block">
-            <div className="ml-10 flex items-center space-x-8">
+            <div className="ml-6 flex items-center space-x-4 sm:space-x-6">
               {['about', 'timeline', 'themes', 'speakers', 'faq'].map((section) => (
                 <a
                   key={section}
                   href={`#${section}`}
-                  className={`capitalize transition-colors ${
+                  className={`text-sm capitalize transition-colors ${
                     activeSection === section
                       ? 'text-purple-600 dark:text-purple-400'
                       : 'hover:text-purple-600 dark:hover:text-purple-400'
@@ -79,13 +79,14 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, mobileMenuOpen, 
               ))}
               <button
                 onClick={() => setDarkMode(!darkMode)}
-                className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                aria-label={darkMode ? 'Switch to light mode' : 'Switch to dark mode'}
               >
-                {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
               </button>
               <a
                 href="#register"
-                className="bg-purple-600 text-white px-6 py-2 rounded-full hover:bg-purple-700 transition-colors"
+                className="bg-purple-600 text-white px-4 py-1.5 text-sm rounded-full hover:bg-purple-700 transition-colors"
               >
                 Register Now
               </a>
@@ -94,9 +95,10 @@ const Navbar: React.FC<NavbarProps> = ({ darkMode, setDarkMode, mobileMenuOpen, 
           <div className="md:hidden">
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              className="p-1.5 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+              aria-label="Open menu"
             >
-              <Menu className="w-6 h-6" />
+              <Menu className="w-5 h-5" />
             </button>
           </div>
         </div>

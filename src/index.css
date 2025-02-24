@@ -5,10 +5,34 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    font-size: 14px;
+  }
+
+  @media (min-width: 640px) {
+    html {
+      font-size: 16px;
+    }
   }
 
   body {
     @apply text-gray-900 dark:text-white;
+    min-width: 250px;
+  }
+
+  /* Improve text readability on small screens */
+  @media (max-width: 350px) {
+    h1 {
+      font-size: 1.75rem;
+    }
+    h2 {
+      font-size: 1.5rem;
+    }
+    h3 {
+      font-size: 1.25rem;
+    }
+    p {
+      font-size: 0.875rem;
+    }
   }
 }
 
@@ -29,4 +53,40 @@
       background-position: 0% 50%;
     }
   }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-gray-100 dark:bg-gray-800;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-purple-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-purple-700;
+  }
+
+  /* Focus styles for better accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-purple-500 ring-offset-2 ring-offset-white dark:ring-offset-gray-900;
+  }
+
+  /* Improved tap targets for mobile */
+  @media (max-width: 640px) {
+    button, a {
+      @apply min-h-[44px] min-w-[44px];
+    }
+  }
+}
+
+/* Optimize performance */
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
