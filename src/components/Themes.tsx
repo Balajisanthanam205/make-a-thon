@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Code2, Brain, Globe, Heart } from 'lucide-react';
 
 const Themes: React.FC = () => {
+  const navigate = useNavigate();
   const [activeTheme, setActiveTheme] = useState<number | null>(null);
 
   const themes = [
@@ -14,7 +16,8 @@ const Themes: React.FC = () => {
         'Computer Vision',
         'Predictive Analytics',
         'Recommendation Systems'
-      ]
+      ],
+      path: '/theme-aiml' // Add path for navigation
     },
     {
       icon: Globe,
@@ -25,7 +28,8 @@ const Themes: React.FC = () => {
         'Renewable Energy',
         'Waste Management',
         'Smart Cities'
-      ]
+      ],
+      path: '/theme-Sustainability' // Add path for navigation
     },
     {
       icon: Heart,
@@ -36,7 +40,8 @@ const Themes: React.FC = () => {
         'Health Monitoring',
         'Medical Data Analysis',
         'Patient Care Management'
-      ]
+      ],
+      path: '/theme-Healthcare' // Add path for navigation
     },
     {
       icon: Code2,
@@ -62,55 +67,22 @@ const Themes: React.FC = () => {
           {themes.map((theme, index) => (
             <div
               key={index}
-              className={`group bg-white dark:bg-gray-800 rounded-xl p-6 cursor-pointer transform transition-all duration-300
-              hover:scale-105 shadow-lg hover:shadow-xl relative overflow-hidden
-              ${activeTheme === index ? 'ring-2 ring-purple-500' : ''}`}
-              onClick={() => setActiveTheme(activeTheme === index ? null : index)}
+              className="group bg-white dark:bg-gray-800 rounded-xl p-6 cursor-pointer transform transition-all duration-300
+              hover:scale-105 shadow-lg hover:shadow-xl relative overflow-hidden"
+              onClick={() => theme.path && navigate(theme.path)} // Navigate on click
               role="button"
               tabIndex={0}
               onKeyPress={(e) => {
                 if (e.key === 'Enter' || e.key === ' ') {
-                  setActiveTheme(activeTheme === index ? null : index);
+                  theme.path && navigate(theme.path);
                 }
               }}
             >
-              {/* Front Content */}
-              <div
-                className={`transition-all duration-300 ${
-                  activeTheme === index ? 'opacity-0' : 'opacity-100'
-                }`}
-              >
-                <theme.icon className="w-12 h-12 text-purple-600 dark:text-purple-400 mb-4 mx-auto" />
-                <h3 className="text-xl font-bold mb-2 text-center">{theme.title}</h3>
-                <p className="text-gray-600 dark:text-gray-400 text-center text-sm">
-                  {theme.description}
-                </p>
-              </div>
-
-              {/* Back Content (Details) */}
-              <div
-                className={`absolute inset-0 bg-white dark:bg-gray-800 p-6 transition-all duration-300 transform
-                ${
-                  activeTheme === index
-                    ? 'translate-y-0 opacity-100'
-                    : 'translate-y-full opacity-0'
-                }`}
-              >
-                <h4 className="text-lg font-semibold mb-4 text-purple-600 dark:text-purple-400">
-                  Key Focus Areas
-                </h4>
-                <ul className="space-y-2">
-                  {theme.details.map((detail, i) => (
-                    <li
-                      key={i}
-                      className="flex items-center text-gray-700 dark:text-gray-300 text-sm"
-                    >
-                      <span className="w-2 h-2 bg-purple-600 rounded-full mr-2"></span>
-                      {detail}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <theme.icon className="w-12 h-12 text-purple-600 dark:text-purple-400 mb-4 mx-auto" />
+              <h3 className="text-xl font-bold mb-2 text-center">{theme.title}</h3>
+              <p className="text-gray-600 dark:text-gray-400 text-center text-sm">
+                {theme.description}
+              </p>
             </div>
           ))}
         </div>
