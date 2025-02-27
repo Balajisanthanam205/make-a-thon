@@ -44,9 +44,7 @@ const About: React.FC = () => {
         >
           <h2 className="text-4xl font-bold mb-4">About Make-a-Thon 6.0</h2>
           <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-            Join us for an exciting 24-hour hackathon where innovation meets technology. 
-            Make-a-Thon 6.0 brings together creative minds to solve real-world challenges 
-            and shape the future of technology.
+          Make-a-Thon is the flagship event of the Electronics and Communication Engineering department of Sri Venkateswara College of Engineering. It serves as a platform for the participants to showcase their talents and expertise in project development and deepen their problem-solving skills. After the successful events of Make-o-thon 1.0,2.0,3.0,4.0 and 5.0 the Electronics and Communication Engineers Association, The Institution of Electronics and Telecommunication Engineers Student Forum & Robotics and Artificial Intelligence Club are all set to conduct the “Make-a-Thon 5.0” as an inter-collegiate event. This event serves as an opportunity for the students to upskill themselves on recent technologies.
           </p>
         </motion.div>
 
