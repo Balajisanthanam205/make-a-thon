@@ -15,6 +15,7 @@ import MobileMenu from './components/MobileMenu';
 import ThemeAIML from './pages/ThemeAIML'; // Import the new page
 import ThemeHealthcare from './pages/ThemeHealthcare';
 import ThemeSustainability from './pages/ThemeSustainability';
+import ThemeOpenInovation from './pages/ThemeOpenInovation';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -81,7 +82,8 @@ function App() {
                   } />
                   <Route path="/theme-aiml" element={<ThemeAIML />} />
                   <Route path="/theme-Healthcare" element={<ThemeHealthcare />} />
-                  <Route path="/theme-Sustainability" element={<ThemeSustainability />} /> {/* Add this route */}
+                  <Route path="/theme-Sustainability" element={<ThemeSustainability />} /> 
+                  <Route path="/theme-open" element={<ThemeOpenInovation />} />{/* Add this route */}
                 </Routes>
               </main>
               <Footer />

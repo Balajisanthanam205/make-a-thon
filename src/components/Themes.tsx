@@ -52,7 +52,9 @@ const Themes: React.FC = () => {
         'Education Technology',
         'Financial Technology',
         'Entertainment'
-      ]
+      ],
+      path: '/theme-open' // Add path for navigation
+
     }
   ];
 
